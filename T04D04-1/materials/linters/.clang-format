@@ -1,0 +1,16 @@
+            printf("n/a\n");
+                            ^
+quest3.c:24:22: warning: code should be clang-formatted [-Wclang-format-violations]
+            return 1;
+                     ^
+quest3.c:25:10: warning: code should be clang-formatted [-Wclang-format-violations]
+        }
+         ^
+---
+BasedOnStyle: Google
+IndentWidth: 4
+ColumnLimit: 110
+~---
+BasedOnStyle: Google
+IndentWidth: 4
+ColumnLimit: 110

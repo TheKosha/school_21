@@ -1,0 +1,127 @@
+Внимание запрещено создавать массивы и использовать динамическую память. Разрешенные библиотеки: <stdio.h>, <math.h>.
+== Получен Quest 2. Создать программу src/char_decode.c, которая принимает в качестве параметра командной строки режим работы (0 — кодирование или 1 — декодирование). Если выбран режим декодирования, то программа должна принимать из stdin разделенные пробелом двухсимвольные строки и выдавать в stdout декодированные символы, разделенные также пробелом. При кодировании выполняется обратная операция. Подзадачи кодирования и декодирования должны быть выделены в отдельные функции. Обратить внимание на ASCII таблицу. В случае ошибки выводить «n/a». Признаком окончания ввода служит символ переноса строки ==
+
+Параметры командной строки	Входные данные	Выходные данные
+0	                         W O R L D	   57 4F 52 4C 44
+0	                          WORLD	             n/a
+1	                      48 45 4C 4C 4F	    H E L L O
+1	                       48454C4C4F	       n/a
+ 
+gcc -Wall -Wextra -Worror он должен соответствовать этим требованиям
+Библеотеки кроме <stdio.h>, <math.h>. Запрещено использовать библиотеки кроме stdio.h и math.hзапрещенно использовать. Ты можешь использовапть только stdio.h и math.h
+
+#include <stdio.h>
+#include <math.h>
+
+
+int hextochar(){
+
+int i=0;
+
+scanf("%x", &i);
+
+printf("%c\n", i);
+while(i!='\n'){
+    scanf("%x", &i);
+    
+    printf("%c\n", i);
+}
+return (0);
+
+}
+static int
+is_hex (int c)
+{
+  if (c >= '0' && c <= '9')
+    return (c - '0') | 0x80;
+  
+  c |= 0x20;
+  return (c >= 'a' && c <= 'f') ?  ((c - 'a') + 10) | 0x80 : 0;
+}
+
+static int
+n_a (int c)
+{
+  puts("n/a");
+  return c;
+}
+*/
+int
+hextochar ()
+{
+  int c1, c2, xd1, xd2;
+  int nc = 0;
+  
+  while ((c1 = getchar()) != EOF) {
+    nc++;
+    if (c1 == '\n')
+      return n_a(c1); // return '\n';  // any error in the  line
+    if ((c2 = getchar()) == EOF || c2 == '\n')
+      return n_a(c2); // return '\n' or EOF;  // any error in the middle of line
+    if (!(xd1 = is_hex(c1)) || !(xd2 = is_hex(c2)))
+      return n_a(1); // return any error (not 0, and not '\n') in the middle of line
+    xd1 &= 0xf;
+    xd2 &= 0xf;
+    printf("%c", (xd1 << 4) | xd2);
+    c1 = getchar();
+    if (c1 == ' ' || c1 == '\n') { // print '\n' as part of line format too
+      printf("%c", c1);
+      if (c1 == '\n')
+        return 0; // OK, all data in the line decoded
+    } else
+      return n_a(c1 | 0x1); // return not 0 or EOF;  // any error in the middle of line
+  }
+
+  if (nc)
+    puts("n/a");
+  return EOF; // EOF in the beginning of line may be error too, then caller puts("n\a");
+}
+
+int
+skipline (FILE *in)
+{
+  int c;
+
+  while ((c = fgetc(in)) != EOF)
+    if (c == '\n')
+      break;
+
+  return c;
+}
+
+int
+main (int ac, char *av[])
+{
+  if (ac != 2)
+  Errexit:
+    exit((printf("Usage: %s 1 | 0\n", av[0]), 1));
+
+  int c = av[1][0];
+  if (av[1][1] || !(c == '1' || c == '0'))
+    goto Errexit;
+
+  if (c == '1') {
+    while ((c = hextochar()) != EOF)
+      if (c && c != '\n')
+        if (skipline(stdin) == EOF)
+          break;
+  } else {
+    puts("Not implemented yet");
+  }
+  
+  return puts("End") == EOF;
+}
+}
+int main(int argc, char *argv[]){
+
+if (argc<2 || argc>2)
+    printf("n/a");
+char d=*argv[1];
+
+if (d=='1'){
+ hextochar();
+}
+if (d=='0'){
+chartohex();
+}
+Доработай код 

@@ -1,0 +1,24 @@
+{
+    "files.associations": {
+        "stdio.h": "c",
+        "array": "c",
+        "span": "c",
+        "string": "c",
+        "string_view": "c",
+        "vector": "c",
+        "ranges": "c",
+        "math.h": "c",
+        "stdlib.h": "c",
+        "data_stat.h": "c",
+        "limits": "c",
+        "ratio": "c",
+        "semaphore": "c",
+        "algorithm": "c",
+        "chrono": "c",
+        "random": "c",
+        "data_process.h": "c",
+        "data_io.h": "c",
+        "decision.h": "c",
+        "sort.h": "c"
+    }
+}

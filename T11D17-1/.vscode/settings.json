@@ -1,0 +1,7 @@
+{
+    "files.associations": {
+        "door_struct.h": "c",
+        "__locale": "c",
+        "thread": "c"
+    }
+}

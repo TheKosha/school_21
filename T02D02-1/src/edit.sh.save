@@ -1,0 +1,8 @@
+#!/bin/bash
+
+File=read -p 'введите путь к файлу'
+Str=read -p 'введите строку которую нужно изменить'
+New_str=read -p 'введите новую строку'
+#sed -i 's/$Str/$New_str/g' $File
+
+
